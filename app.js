@@ -20,24 +20,24 @@ router.route('/parse/:stringToParse')
 
 	    var result = romanModule.parse(req.params.stringToParse);
 
-	    if (result != false) {
-	        res.json({ number: result })
-	    }
-	    else {
+	    if (result === false) {
 	        res.status(400);
 	        res.send('Input string was invalid');
+	    }
+	    else {
+	        res.json({ number: result })
 	    }
 	})
 
 router.route('/generate/:integerToGenerate')
 	.get(function (req, res) {
 	    var result = romanModule.generate(req.params.integerToGenerate)
-	    if (result == false) {
+	    if (result === false) {
 	        res.status(400);
 	        res.send('Input integer was invalid');
 	    }
 	    else {
-	        res.json({ result: result })
+	        res.json({ romannumeral: result })
 	    }
 	})
 
