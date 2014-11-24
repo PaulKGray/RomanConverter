@@ -1,5 +1,5 @@
 ﻿
-// object for a roman numeral 
+// object for a roman numeral data structure
 function roman(roman, value) {
     this.roman = roman;
     this.value = value;
@@ -32,7 +32,8 @@ module.exports = {
             || integer > 3999) return false;
 
         var result = '';
-
+        // loop through the roman numeral possibilities and compare to the 
+        // value that is trying to be converted
         for (i = 0; i < romans.length; i++) {
             while (integer >= romans[i].value) {
                 result += romans[i].roman;
@@ -49,7 +50,6 @@ module.exports = {
         var regx = new RegExp('^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$')
         if (!regx.test(string)) return false;
 
-        string = string.toUpperCase();
         var result = 0;
         for (var i = 0; i < romans.length; i++) {
             // look at the search string and compare the length of the roman to the first characters in the string
